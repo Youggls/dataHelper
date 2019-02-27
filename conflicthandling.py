@@ -18,6 +18,8 @@ with open(s1, 'r') as csvfile1:
             if line1[4] != line2[4]:
                 conflictInfo = ["The confilt appears at row {}, column 5".format(i + 1)]
                 conflictLines.append(conflictInfo)
+csvfile1.close()
+csvfile2.close()
 
 for line in conflictLines:
    print(line)
@@ -26,3 +28,5 @@ with open('ConflictInfo.csv', 'w', newline = '') as outfile:
     writer = csv.writer(outfile)
     for i in conflictLines:
         writer.writerow(i)
+
+outfile.close()

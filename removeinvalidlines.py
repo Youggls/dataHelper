@@ -11,4 +11,6 @@ with open(s, 'r') as file:
                 totalNumber += 1
                 writer.writerow(line)
 
+file.close()
+outfile.close()
 print('total lines:', totalNumber)
