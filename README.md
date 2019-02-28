@@ -9,4 +9,4 @@ An useful data helper
 
 另外：
 1.请使用python3运行本文件
-2.若编码错误（例"UnicodeDecodeError: 'gbk' codec can't decode byte 0xa2 in position 50: illegal multibyte sequence"）。这时由于python读写文件时默认以asci方式读写，请检查您的文件编码，尝试改为asci编码再运行
+2.若编码错误（例"UnicodeDecodeError: 'gbk' codec can't decode byte 0xa2 in position 50: illegal multibyte sequence"）。这时由于python读写文件时默认以ansi方式读写，请检查您的文件编码，尝试改为ansi编码再运行
