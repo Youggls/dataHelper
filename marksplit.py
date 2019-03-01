@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
-"""Tags Spliter
+"""Mark Split
 Usage:
-  tagspliter <src> <tag> <item> <encode>
+  marksplit <src> <mark> <item> <encode>
 """
 from docopt import docopt
 import csv
@@ -20,7 +20,7 @@ if __name__ == '__main__':
       sum =0
       for l in ls:
         if len(l) >= 5:
-          if l[4] == args['<tag>']:
+          if l[4] == args['<mark>']:
             sum += 1
             writer.writerow([l[0],l[1],l[2],l[3]])
     outname = args['<item>']+'-'+str(sum)+'-'+date+'.csv'

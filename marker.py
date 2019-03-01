@@ -1,12 +1,11 @@
 #!/usr/bin/python3
 # -*- coding: UTF-8 -*-
-"""Tags Maker
+"""Marker
 Usage:
-  tagmaker <src> <out> <tag> <encode>
+  marker <src> <out> <mark> <encode>
 """
 from docopt import docopt
 import csv
-import os
 import time
 if __name__ == '__main__':
   args = docopt(__doc__)
@@ -23,6 +22,6 @@ if __name__ == '__main__':
           while len(l) < 5:
             l.append(l[len(l)-1])
           if l[4] == '':
-            l[4] = args['<tag>']
+            l[4] = args['<mark>']
             sum += 1
         writer.writerow(l)
