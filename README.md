@@ -2,9 +2,11 @@
 
 An useful data helper
 
-----
-
 > updatetime 2019/02/28/ 01:08
+
+统一数据格式：
+
+`id,content,aspect,sentimentword,polarity`
 
 #### removeinvalidlines.py
 
@@ -19,8 +21,37 @@ An useful data helper
 该文件有三种用途:1.将错误的中文分号改为英文分号   2.将多打的英文分号删除   3.将字符串中间的空格转化为分号
 针对第三点用途的补充：以后在写入词组的时候，不再需要频繁切换中英文来输入英文分号，只需要在要分隔的地方打上任意个空格，最后在转换的时候该脚本可以将中间有空格的地方改为英文分号分隔.
 
+#### marker.py
+
+与 marksplit 配合使用。给未打上任何 mark 的已标记行打上 mark ，用于标记当天的工作。第二天可以在第一天的输出文件上继续工作。使用第六列，index 为 5 ，作为 mark 列。
+```
+Usage:
+  marker <src> <out> <tag> <encode>
+```
+例：
+```
+python marker.py input.csv out.csv tag1 gbk
+# or
+python marker.py input.csv out.csv tag1 utf-8
+# 输出文件：out.csv
+```
+
+#### marksplit.py
+
+与 marker 配合使用。从打上 mark 的csv文件中分离出相应的 mark 行，输出到文件，并删除 mark 。结果可在其他处理后提交。
+```
+Usage:
+  marksplit <src> <mark> <item> <encode>
+```
+例：
+```
+python marksplit.py out.csv tag1 衣服 gbk
+# 输出文件： 衣服-XX-YYYYmmdd.csv
+```
+输出文件名自动设置为`item-有效行数-日期.csv`。
 
 另外：
 
 1. 请使用`python3`运行本文件。
 2. 若编码错误，例：（`UnicodeDecodeError: 'gbk' codec can't decode byte 0xa2 in position 50:      illegal multibyte sequence"`）这是由于python读写文件时默认以ansi方式读写，请检查您的文件编码，尝试改为ansi编码再运行。
+3. 命令行下可用 Tab 补全文件名。
