@@ -19,7 +19,7 @@ def standardize(char):
     return ';'.join(char.split())
 for content in csv_file:
     if content[2]!='':
-        for i in range(len(content)):
+        for i in range(2,5):
             content[i]=standardize(content[i])
         print(content)
         csv_write.writerow(content)
