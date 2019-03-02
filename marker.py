@@ -19,9 +19,9 @@ if __name__ == '__main__':
       sum = 0
       for l in ls:
         if l[2]:
-          while len(l) < 5:
+          while len(l) < 6:
             l.append(l[len(l)-1])
-          if l[4] == '':
-            l[4] = args['<mark>']
+          if l[5] == '':
+            l[5] = args['<mark>']
             sum += 1
         writer.writerow(l)

@@ -4,6 +4,10 @@ An useful data helper
 
 > updatetime 2019/02/28/ 01:08
 
+统一数据格式：
+
+`id,content,aspect,sentimentword,polarity`
+
 #### removeinvalidlines.py
 
 用来移除文件中的无效行，执行时会提示输入两个字符串，第一个要求输入待处理文件名称（或相对/绝对路径），第二个要求输入输出文件名称（或相对/绝对路径），运行结束后，会生成一个处理后的文件，并且会在控制台输出当前总的有效行数。
@@ -19,7 +23,7 @@ An useful data helper
 
 #### marker.py
 
-与 marksplit 配合使用。给未打上任何 mark 的已标记行打上 mark，用于标记当天的工作。第二天可以在第一天的输出文件上继续工作。使用第五列作为 mark 列。
+与 marksplit 配合使用。给未打上任何 mark 的已标记行打上 mark ，用于标记当天的工作。第二天可以在第一天的输出文件上继续工作。使用第六列，index 为 5 ，作为 mark 列。
 ```
 Usage:
   marker <src> <out> <tag> <encode>
@@ -34,7 +38,7 @@ python marker.py input.csv out.csv tag1 utf-8
 
 #### marksplit.py
 
-与 marker 配合使用。从打上 mark 的csv文件中分离出相应的 mark 行，输出到文件，并删除mark。结果可在其他处理后提交。
+与 marker 配合使用。从打上 mark 的csv文件中分离出相应的 mark 行，输出到文件，并删除 mark 。结果可在其他处理后提交。
 ```
 Usage:
   marksplit <src> <mark> <item> <encode>

@@ -19,9 +19,9 @@ if __name__ == '__main__':
       writer = csv.writer(out)
       sum =0
       for l in ls:
-        if len(l) >= 5:
-          if l[4] == args['<mark>']:
+        if len(l) >= 6:
+          if l[5] == args['<mark>']:
             sum += 1
-            writer.writerow([l[0],l[1],l[2],l[3]])
+            writer.writerow([l[0],l[1],l[2],l[3],l[4]])
     outname = args['<item>']+'-'+str(sum)+'-'+date+'.csv'
     os.rename(tmpname,outname)
