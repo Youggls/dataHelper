@@ -56,5 +56,5 @@ python marksplit.py out.csv tag1 衣服 gbk
 另外：
 
 1. 请使用`python3`运行本文件。
-2. 若编码错误，例：（`UnicodeDecodeError: 'gbk' codec can't decode byte 0xa2 in position 50:      illegal multibyte sequence"`）这是由于python读写文件时默认以ansi方式读写，请检查您的文件编码，尝试改为ansi编码再运行。
+2. 若编码错误，例：（`UnicodeDecodeError: 'gbk' codec can't decode byte 0xa2 in position 50:      illegal multibyte sequence"`）这是由于python在windows下读写文件时默认以ansi方式读写，请检查您的文件编码，尝试改为ansi编码再运行。
 3. 命令行下可用 Tab 补全文件名。
