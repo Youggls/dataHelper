@@ -7,13 +7,9 @@ Usage:
 from docopt import docopt
 import csv
 import time
-if __name__ == '__main__':
-  args = docopt(__doc__)
-  print(args)
-  if args['<src>'] == args['<out>']:
-    exit
-  with open(args['<src>'],mode='r',encoding=args['<encode>']) as src:
-    with open(args['<out>'],mode='w',encoding=args['<encode>'],newline='') as out:
+def marker(src,out,mark,encode):
+  with open(src,mode='r',encoding=encode) as src:
+    with open(out,mode='w',encoding=encode,newline='') as out:
       ls = csv.reader(src)
       writer = csv.writer(out)
       sum = 0
@@ -22,6 +18,14 @@ if __name__ == '__main__':
           while len(l) < 6:
             l.append(l[len(l)-1])
           if l[5] == '':
-            l[5] = args['<mark>']
+            l[5] = mark
             sum += 1
         writer.writerow(l)
+
+if __name__ == '__main__':
+  args = docopt(__doc__)
+  print(args)
+  if args['<src>'] == args['<out>']:
+    print('error: out file can not be src file')
+    exit
+  marker(args['<src>'],args['<out>'],args['<mark>'],args['<encode>'])
