@@ -87,7 +87,7 @@ if __name__ == "__main__":
                     outSentiment = str()
                     count = 0
                     for i in range(0, len(aspect1)):
-                        if aspect1[i] in aspect2 == False:
+                        if (aspect1[i] in aspect2) == False:
                             continue
                         #确保完全一样的情感词、极性、aspect才能被写入
                         if (sentiment1[i] in sentiment2) and (polarity1[i] in polarity2):
