@@ -106,7 +106,7 @@ if __name__ == "__main__":
                     outLine.append(outSentiment)
                     outLine.append(outPolarity)
 
-                    if count != len(aspect1):
+                    if ((count != len(aspect1)) or (count != len(aspect2))):
                         outLine.append("{}".format(0))
                     else:
                         outLine.append("{}".format(1))
